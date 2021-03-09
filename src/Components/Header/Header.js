@@ -1,12 +1,17 @@
 import React from 'react';
 import { Navbar, Nav, Form, FormControl, Button, Container } from 'react-bootstrap';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+
+    const darkBlue = {
+        color: "darkBlue"
+    }
+
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" className="mt-5">
             <Container>
-                <Navbar.Brand  as={Link} to="/">FCBarcelona</Navbar.Brand>
+                <Navbar.Brand style={darkBlue} as={Link} to="/">FC BARCELONA</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">

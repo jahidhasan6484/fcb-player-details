@@ -5,7 +5,7 @@ const Footer = () => {
 
     return (
         <Container className="text-center mt-5 mb-5">
-            &copy; All right reserved {new Date().getYear()}
+            &copy; All right reserved by JJ 2021!
         </Container>
     );
 };
