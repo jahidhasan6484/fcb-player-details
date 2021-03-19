@@ -1,27 +1,30 @@
-import React from 'react';
-import { Navbar, Nav, Form, FormControl, Button, Container } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import { UserContext } from '../../App';
 
 const Header = () => {
-
-    const darkBlue = {
-        color: "darkBlue"
-    }
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     return (
-        <Navbar bg="light" expand="lg" className="mt-5">
+        <Navbar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand style={darkBlue} as={Link} to="/">FC BARCELONA</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <div className="col-md-6">
+                    <Link className="navbar-brand h3 m-0" to="/">Let's<span className="text-primary">GO!</span></Link>
+                </div>
+                <div className="col-md-6">
                     <Nav className="mr-auto">
-                        <Nav.Link as={Link} to="/">Home</Nav.Link>
+                        <Nav.Link as={Link} className="text-dark" to="/home">Home</Nav.Link>
+                        <Nav.Link as={Link} className="text-dark" to="/destination">Destination</Nav.Link>
+                        <Nav.Link as={Link} className="text-dark" >Blog</Nav.Link>
+                        <Nav.Link as={Link} className="text-dark" >Contact</Nav.Link>
+                        {
+                            loggedInUser.email ? <Nav.Link as={Link} className="text-dark" to="/profile">{loggedInUser.name}</Nav.Link> :
+                            <Nav.Link as={Link} className="btn btn-info" to="/login">login</Nav.Link>
+                        }
+                        
                     </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button>
-                    </Form>
-                </Navbar.Collapse>
+                </div>
             </Container>
         </Navbar>
     );

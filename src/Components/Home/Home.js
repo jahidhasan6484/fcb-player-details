@@ -2,22 +2,22 @@ import React, { useEffect, useState } from 'react';
 import Body from '../Body/Body';
 import data from '../Data/data.json';
 
-const AllPlayers = () => {
-    const [players, setPlayer] = useState([]);
+const Home = () => {
+    const [transports, setTransport] = useState([]);
 
     useEffect(() => {
-        setPlayer(data);
+        setTransport(data);
     }, [])
 
     return (
         <div className="container mt-5">
             <div className="row">
                 {
-                    players.map(player => <Body player={player}></Body>)
+                    transports.map(transport => <Body transport={transport}></Body>)
                 }
             </div>
         </div>
     );
 };
 
-export default AllPlayers;
+export default Home;
