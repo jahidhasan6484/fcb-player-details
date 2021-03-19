@@ -22,6 +22,7 @@ const Profile = () => {
                         <hp className="card-text">{loggedInUser.email}</hp>
                         <br/><br/><br/>
                         <Nav.Link as={Link} onClick={handleLogOut} className="btn btn-info" to="/home">Log Out</Nav.Link>
+                        <p>P</p>
                     </div>
                 </div>
             </div>
